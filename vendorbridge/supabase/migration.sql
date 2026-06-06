@@ -51,7 +51,7 @@ $$;
 
 create or replace function public.is_officer_or_admin()
 returns boolean language sql security definer stable set search_path = public as $$
-  select exists (select 1 from public.profiles where id = auth.uid() and role in ('admin', 'procurement_officer'));
+  select exists (select 1 from public.profiles where id = auth.uid() and role in ('admin', 'procurement_officer', 'manager'));
 $$;
 
 create or replace function public.is_manager_or_admin()
